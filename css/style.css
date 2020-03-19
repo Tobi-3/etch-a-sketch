@@ -1,0 +1,22 @@
+
+body {
+    margin: 0px;
+    background: whitesmoke;
+    
+}
+
+.container {
+    display: grid;
+    justify-content: center;
+    align-items: center;
+}
+
+.square {
+    border: 1px solid #d3d3d3;
+    background-color: white;
+}
+
+.btn {
+    width: 100px;
+    height: 20pxd;
+}
