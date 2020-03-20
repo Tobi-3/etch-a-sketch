@@ -2,7 +2,7 @@
 // globals
 const gridContainer = document.getElementById('container');
 const btnContainer = document.getElementById('btn-container');
-const togglesEtc = {mousedown: false, gridBorders: false, black: true,}
+const togglesEtc = {mousedown: false, gridBorders: true, black: true,}
 const gridSize = 600;
 gridContainer.style.width = `${gridSize}px`;
 gridContainer.style.height = `${gridSize}px`;
@@ -22,7 +22,7 @@ function createSquare(id, sideLength) {
     sqr.backgroundColor= 'whitesmoke';
     sqr.style.width = `${sideLength}px`;
     sqr.style.height = `${sideLength}px`;
-    
+    sqr.style.border = togglesEtc.gridBorders? '1px solid black' : '';
     
     sqr.addEventListener('mousedown', (e) => {
         sqr.style.backgroundColor = colorSquare(e);
@@ -103,12 +103,14 @@ const newGridBtn = createBtn('btn', 'New Grid', () => {
 )
 
 const toggleGridBtn = createBtn('btn', 'Toggle Grid',() => {
-    togglesEtc['toggleGridBtn'] = !togglesEtc.toggleGridBtn;
+    
     squares = [...gridContainer.getElementsByTagName('*')];
     
     (togglesEtc.toggleGridBtn)? 
     squares.forEach(sqr => { sqr.style.border = '1px solid black'}):
-    squares.forEach(sqr => { sqr.style.border = 'whitesmoke'});
+    squares.forEach(sqr => { sqr.style.border = ''});
+
+    togglesEtc['toggleGridBtn'] = !togglesEtc.toggleGridBtn;
     
 })
 
